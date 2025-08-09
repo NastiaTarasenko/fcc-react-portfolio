@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fake tweet</title>
+    </head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        :root {
+            font-size: min(1.1vw, 1.9vh); /* 16 for 1440px width */
+        }
+        body {
+            font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+            background-color: #f5f8fa;
+            color: #14171a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+        .tweet-box {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 1rem;
+            padding: 3rem 4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .line {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            font-size: 2rem;
+        }
+        .line1 {
+            animation-delay: 0.5s;
+        }
+        .line2 {
+            animation-delay: 3s;
+        }
+        .line3 {
+            animation-delay: 6s;
+        }
+        .line4 {
+            animation-delay: 9s;
+        }
+        .line5 {
+            animation-delay: 12s;
+            font-style: italic;
+            color: #666;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <body>
+        <div class="tweet-box">
+            <h1 class="line line1">Posting your quote...</h1>
+            <h2 class="line line2">Congrats, your quote was successfully posted :)</h2>
+            <h2 class="line line3">Ready for the next one?</h2>
+            <h2 class="line line4">Keep going, you’re doing great.</h2>
+            <h2 class="line line5">(Just kidding — this is a placeholder page.)</h2>
+        </div>
+    </body>
+</html>
