@@ -1,4 +1,4 @@
-# 🌟 FreeCodeCamp React Projects 🌟
+# 🌟 FreeCodeCamp React Portfolio 🌟
 
 This repository contains my learning projects from FreeCodeCamp, rewritten in React. The main goal is to deepen my understanding of React, Redux, and modern frontend practices through hands-on experience.
 
