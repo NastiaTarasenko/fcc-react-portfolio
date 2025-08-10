@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { updateQuote } from "./RandomQuoteSlice.js";
 import { Link } from "react-router-dom";
+import Menu from "../../shared/menu/Menu.jsx";
 
 const RandomQuote = () => {
     const quoteIndex = useSelector((state) => state.RandomQuote.quoteIndex);
@@ -21,6 +22,7 @@ const RandomQuote = () => {
 
     return (
         <>
+            <Menu />
             <h1 className={styles.title}>
                 <span> &#9734;</span> Your Daily Quote <span> &#9734;</span>
             </h1>

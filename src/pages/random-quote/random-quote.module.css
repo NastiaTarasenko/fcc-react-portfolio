@@ -50,6 +50,13 @@
     color: #3a2c18;
     text-align: center;
     margin: 0;
+    user-select: text;
+}
+
+.text::selection,
+.author::selection {
+    background-color: #fad2e1;
+    color: #5c3d2e;
 }
 .author {
     font-size: 1.25rem;
@@ -58,6 +65,7 @@
     text-align: right;
     margin-top: 0;
     font-style: italic;
+    user-select: text;
 }
 
 .actionsWrapper {
