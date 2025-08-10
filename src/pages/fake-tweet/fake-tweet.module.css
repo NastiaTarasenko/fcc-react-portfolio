@@ -1,0 +1,35 @@
+.tweetBox {
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 1rem;
+    padding: 3rem 4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.line {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    font-size: 2rem;
+}
+.line1 {
+    animation-delay: 0.5s;
+}
+.line2 {
+    animation-delay: 3s;
+}
+.line3 {
+    animation-delay: 6s;
+}
+.line4 {
+    animation-delay: 9s;
+}
+.line5 {
+    animation-delay: 12s;
+    font-style: italic;
+    color: #666;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

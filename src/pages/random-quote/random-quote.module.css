@@ -1,0 +1,105 @@
+.title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    color: #5a2807;
+    user-select: none;
+    margin-bottom: 4rem;
+}
+
+.title span {
+    color: #b61555;
+    font-size: 2.4rem;
+}
+.title span:first-child {
+    margin-right: 0.25rem;
+}
+.title span:nth-child(2) {
+    margin-left: 0.25rem;
+}
+
+.bgWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    min-height: min(70vh, 50vw);
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease;
+}
+
+.quoteBox {
+    width: 100%;
+    padding: 2.5rem 3rem;
+    border-radius: 1.5rem;
+    background-color: rgba(255 255 255 / 0.8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    user-select: none;
+}
+.text {
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #3a2c18;
+    text-align: center;
+    margin: 0;
+}
+.author {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #6b5533;
+    text-align: right;
+    margin-top: 0;
+    font-style: italic;
+}
+
+.actionsWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    align-items: center;
+}
+
+.newQuote {
+    padding: 0.6rem 1.3rem;
+    border: none;
+    background-color: #fad2e1;
+    border-radius: 0.8rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #7f3b56;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+    user-select: none;
+}
+
+.newQuote:hover {
+    background-color: #fbb1bd;
+    box-shadow: 0 0 12px 3px #f8afa6;
+}
+
+.newQuote:active {
+    background-color: #f4978e;
+}
+.tweetQuote {
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4a2f0f;
+    cursor: pointer;
+    user-select: none;
+    transition: text-shadow 0.2s ease;
+}
+
+.tweetQuote:hover {
+    text-shadow: 0 1px 4px #9c622b;
+}

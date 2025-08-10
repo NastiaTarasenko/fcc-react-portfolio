@@ -8,7 +8,7 @@ This repository contains my learning projects from FreeCodeCamp, rewritten in Re
 
 ### Random Quote Generator (Your Daily Quote)
 
-A simple app that shows random quotes with their authors. Users can get new quotes by clicking a button and share quotes on Twitter. This project focuses on building interactive UI components and managing state with React and Redux.
+A simple app that displays random quotes with their authors. Users can get new quotes by clicking a button and share quotes on Twitter. The project demonstrates interactive UI components and state management with React and Redux.
 
 ---
 
@@ -18,14 +18,14 @@ These projects were originally built as part of the FreeCodeCamp Frontend Develo
 
 Styling wasn’t the top priority, but I tried to keep the design nice and clean — starting from FCC examples and tweaking it a bit to make it more polished.
 
-Overall, this is a fun way to experiment with React and Redux, practice structuring code, handling logic, and improving performance. I’m planning to add more projects and routing soon.
+Overall, this is a playground to experiment with React and Redux, practice code structuring, logic handling, and performance improvements. More projects will be added over time.
 
 ---
 
 ## Technologies
 
-- React  
-- Redux (used intentionally even when simpler solutions might exist to better understand it)  
+- React
+- Redux (used intentionally even when simpler solutions might exist to better understand it)
 - CSS
 
 ---
