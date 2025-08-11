@@ -3,7 +3,7 @@ import { setRunTimer, setCurrentTimer, setSessionLength, setBreakLength } from "
 import { SESSION } from "../constants/timerTypes";
 import styles from "../clock.module.css";
 
-const ControlBtns = ({ updateTimeoutRef, soundRef }) => {
+const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
     const runTimer = useSelector((state) => state.clock.runTimer);
 
     const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const ControlBtns = ({ updateTimeoutRef, soundRef }) => {
             clearTimeout(updateTimeoutRef.current);
             updateTimeoutRef.current = null;
         }
+        setTimeLeft(25 * 60);
     };
 
     return (

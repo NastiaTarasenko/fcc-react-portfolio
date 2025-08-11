@@ -1,21 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { typeConfig } from "../constants/typeConfig";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { setRunTimer, setCurrentTimer } from "../ClockSlice";
 import { SESSION, BREAK } from "../constants/timerTypes";
 import styles from "../clock.module.css";
 
-const Timer = ({ soundRef, updateTimeoutRef }) => {
+const Timer = ({ soundRef, updateTimeoutRef, timeLeft, setTimeLeft }) => {
     const currentTimer = useSelector((state) => state.clock.currentTimer);
-    const length = useSelector(typeConfig[currentTimer].lengthSelector);
-    const [timeLeft, setTimeLeft] = useState(length * 60);
+
     const runTimer = useSelector((state) => state.clock.runTimer);
     const timerIntervalRef = useRef(null);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        setTimeLeft(length * 60);
-    }, [length, currentTimer]);
 
     useEffect(() => {
         if (runTimer) {
@@ -29,7 +23,7 @@ const Timer = ({ soundRef, updateTimeoutRef }) => {
             timerIntervalRef.current = 0;
         }
         return () => clearInterval(timerIntervalRef.current);
-    }, [runTimer, currentTimer]);
+    }, [runTimer, currentTimer, setTimeLeft]);
 
     useEffect(() => {
         if (timeLeft === 0 && runTimer) {
