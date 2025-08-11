@@ -11,7 +11,6 @@ import { typeConfig } from "./constants/typeConfig";
 const Clock = () => {
     const soundRef = useRef(null);
     const updateTimeoutRef = useRef(null);
-
     const currentTimer = useSelector((state) => state.clock.currentTimer);
     const length = useSelector(typeConfig[currentTimer].lengthSelector);
     const [timeLeft, setTimeLeft] = useState(length * 60);

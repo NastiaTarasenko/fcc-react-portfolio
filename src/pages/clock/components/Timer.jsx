@@ -6,7 +6,6 @@ import styles from "../clock.module.css";
 
 const Timer = ({ soundRef, updateTimeoutRef, timeLeft, setTimeLeft }) => {
     const currentTimer = useSelector((state) => state.clock.currentTimer);
-
     const runTimer = useSelector((state) => state.clock.runTimer);
     const timerIntervalRef = useRef(null);
     const dispatch = useDispatch();
