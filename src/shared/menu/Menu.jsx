@@ -1,7 +1,7 @@
 import styles from "./menu.module.css";
 import MenuToggleIcon from "../icons/MenuToggleIcon.jsx";
 import { useState, useRef, useEffect } from "react";
-import { menuItems } from "./constants.js";
+import { MENU_ITEMS } from "./constants.js";
 import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
@@ -18,8 +18,8 @@ const Menu = () => {
 
         tl.current.to(itemsRef.current, {
             y: (i) => `${(i + 1) * 3.8 + 0.4}rem`,
-            stagger: 0.1,
-            duration: 0.3,
+            stagger: 0.05,
+            duration: 0.2,
             zIndex: 1,
         });
     }, []);
@@ -33,7 +33,7 @@ const Menu = () => {
             <MenuToggleIcon menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} />
             <nav>
                 <ul className={styles.list}>
-                    {menuItems.map((item, index) => {
+                    {MENU_ITEMS.map((item, index) => {
                         const { Icon } = item;
                         return (
                             <li

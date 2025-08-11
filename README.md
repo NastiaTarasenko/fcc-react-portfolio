@@ -10,6 +10,10 @@ This repository contains my learning projects from FreeCodeCamp, rewritten in Re
 
 A simple app that displays random quotes with their authors. Users can get new quotes by clicking a button and share quotes on Twitter. The project demonstrates interactive UI components and state management with React and Redux.
 
+### 25 + 5 Clock
+
+An interactive timer where you can set custom session and break lengths, start/stop the countdown, and reset everything to default values. It automatically switches between work sessions and breaks, playing a sound when each phase ends. The project focuses on precise timer logic, state management with Redux, and handling edge cases like length limits and pause/resume behavior.
+
 ---
 
 ## Purpose

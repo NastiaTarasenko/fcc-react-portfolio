@@ -11,6 +11,11 @@ const Home = () => {
                         Your Daily Quote
                     </Link>
                 </li>
+                <li>
+                    <Link to="/clock" className={styles.link}>
+                        25 + 5 Clock
+                    </Link>
+                </li>
             </ul>
         </div>
     );
