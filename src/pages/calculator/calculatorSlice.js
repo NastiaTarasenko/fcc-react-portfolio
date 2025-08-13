@@ -44,6 +44,24 @@ const addOperatorHelper = (state, value) => {
     }
 };
 
+const addDecimalHelper = (state) => {
+    if (state.wasEqualed) {
+        state.input = "0.";
+        state.lastValue = "0.";
+        state.wasEqualed = false;
+        return;
+    }
+    if (state.lastValue.includes(".")) return;
+
+    if (state.lastValue === "" || OPERATIONS.includes(state.lastValue)) {
+        state.input += "0.";
+        state.lastValue = "0.";
+        return;
+    }
+    state.input += ".";
+    state.lastValue += ".";
+};
+
 const CalculatorSlice = createSlice({
     name: "calculator",
     initialState: {
@@ -73,11 +91,12 @@ const CalculatorSlice = createSlice({
             if (wasEqualed !== undefined) state.wasEqualed = wasEqualed;
         },
         addOperator: (state, action) => addOperatorHelper(state, action.payload),
+        addDecimal: (state) => addDecimalHelper(state),
     },
 });
 
-const { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator } =
+const { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator, addDecimal } =
     CalculatorSlice.actions;
 
-export { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator };
+export { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator, addDecimal };
 export default CalculatorSlice.reducer;
