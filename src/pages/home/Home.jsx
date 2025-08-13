@@ -12,6 +12,11 @@ const Home = () => {
                     </Link>
                 </li>
                 <li>
+                    <Link to="/calculator" className={styles.link}>
+                        Calculator
+                    </Link>
+                </li>
+                <li>
                     <Link to="/clock" className={styles.link}>
                         25 + 5 Clock
                     </Link>
