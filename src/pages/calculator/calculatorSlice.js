@@ -61,6 +61,37 @@ const addDecimalHelper = (state) => {
     state.lastValue += ".";
 };
 
+const addDigitHelper = (state, value) => {
+    if (state.wasEqualed) {
+        state.input = value.toString();
+        state.lastValue = value.toString();
+        state.wasEqualed = false;
+        return;
+    }
+
+    if (state.lastValue === "0" && value == "0") return;
+
+    if ((state.lastValue === "0" && value !== "0") || OPERATIONS.includes(state.lastValue)) {
+        state.lastValue = value.toString();
+    } else {
+        state.lastValue = state.lastValue + value;
+    }
+
+    state.input += value;
+};
+
+export const addDigitWithLimitCheck = (value) => (dispatch, getState) => {
+    const { lastValue } = getState().calculator;
+    if (lastValue.length >= 20) {
+        dispatch(setDigitLimitMet(true));
+        setTimeout(() => {
+            dispatch(setDigitLimitMet(false));
+        }, 600);
+        return;
+    }
+    dispatch(addDigit(value));
+};
+
 const CalculatorSlice = createSlice({
     name: "calculator",
     initialState: {
@@ -91,11 +122,19 @@ const CalculatorSlice = createSlice({
         },
         addOperator: (state, action) => addOperatorHelper(state, action.payload),
         addDecimal: (state) => addDecimalHelper(state),
+        addDigit: (state, action) => addDigitHelper(state, action.payload),
     },
 });
 
-const { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator, addDecimal } =
-    CalculatorSlice.actions;
+export const {
+    setInput,
+    setLastValue,
+    setDigitLimitMet,
+    setWasEqualed,
+    setCalculatorState,
+    addOperator,
+    addDecimal,
+    addDigit,
+} = CalculatorSlice.actions;
 
-export { setInput, setLastValue, setDigitLimitMet, setWasEqualed, setCalculatorState, addOperator, addDecimal };
 export default CalculatorSlice.reducer;
