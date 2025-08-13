@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { OPERATIONS } from "./constants";
+import { evaluate } from "mathjs";
 
 const addOperatorHelper = (state, value) => {
     const operator = value === "x" ? "·" : value;
@@ -92,6 +93,24 @@ export const addDigitWithLimitCheck = (value) => (dispatch, getState) => {
     dispatch(addDigit(value));
 };
 
+const calculateHelper = (state) => {
+    let expr = state.input;
+
+    while (/[+\-·/.]$/.test(expr)) expr = expr.slice(0, -1);
+
+    let result;
+
+    try {
+        result = evaluate(expr.replace(/·/g, "*"));
+    } catch {
+        result = NaN;
+    }
+
+    state.input = expr + "=" + result;
+    state.lastValue = result || "";
+    state.wasEqualed = true;
+};
+
 const CalculatorSlice = createSlice({
     name: "calculator",
     initialState: {
@@ -123,6 +142,7 @@ const CalculatorSlice = createSlice({
         addOperator: (state, action) => addOperatorHelper(state, action.payload),
         addDecimal: (state) => addDecimalHelper(state),
         addDigit: (state, action) => addDigitHelper(state, action.payload),
+        calculate: (state) => calculateHelper(state),
     },
 });
 
@@ -135,6 +155,7 @@ export const {
     addOperator,
     addDecimal,
     addDigit,
+    calculate,
 } = CalculatorSlice.actions;
 
 export default CalculatorSlice.reducer;
