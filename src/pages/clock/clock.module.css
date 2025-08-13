@@ -43,7 +43,7 @@
     justify-content: center;
 }
 
-button {
+.btn {
     padding: 0;
     background: none;
     border: none;
@@ -52,10 +52,10 @@ button {
     font-weight: 600;
     transition: color 0.2s ease;
 }
-button:hover {
+.btn:hover {
     color: #a55d0f;
 }
-button:active {
+.btn:active {
     color: #8b3f57;
 }
 

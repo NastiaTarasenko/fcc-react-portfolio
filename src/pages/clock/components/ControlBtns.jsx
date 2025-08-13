@@ -33,10 +33,10 @@ const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
 
     return (
         <div className={styles.controlsWrapper}>
-            <button className={styles.controlsBtn} onClick={startStopOnClickHandler}>
+            <button className={`${styles.btn} ${styles.controlsBtn}`} onClick={startStopOnClickHandler}>
                 Start/Stop
             </button>
-            <button className={styles.controlsBtn} onClick={resetFunc}>
+            <button className={`${styles.btn} ${styles.controlsBtn}`} onClick={resetFunc}>
                 Reset
             </button>
         </div>

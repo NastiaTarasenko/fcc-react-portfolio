@@ -11,11 +11,11 @@ const BreakSessionSettings = ({ type }) => {
     const dispatch = useDispatch();
 
     const decrementOnClickHandler = () => {
-        length !== 1 && !runTimer && dispatch(setLength(length - 1));
+        !runTimer && length === 1 ? dispatch(setLength(60)) : dispatch(setLength(length - 1));
     };
 
     const incrementOnclickHandler = () => {
-        length !== 60 && !runTimer && dispatch(setLength(length + 1));
+        !runTimer && length === 60 ? dispatch(setLength(1)) : dispatch(setLength(length + 1));
     };
 
     return (
@@ -23,11 +23,11 @@ const BreakSessionSettings = ({ type }) => {
             <p id={type === BREAK ? "break-label" : "session-label"}>{type} Length</p>
 
             <div className={styles.parametersWrapper}>
-                <button className={styles.durationControls} onClick={decrementOnClickHandler}>
+                <button className={`${styles.btn} ${styles.durationControls}`} onClick={decrementOnClickHandler}>
                     –
                 </button>
                 <p className={styles.duration}>{length}</p>
-                <button className={styles.durationControls} onClick={incrementOnclickHandler}>
+                <button className={`${styles.btn} ${styles.durationControls}`} onClick={incrementOnclickHandler}>
                     +
                 </button>
             </div>
