@@ -11,11 +11,13 @@ const BreakSessionSettings = ({ type }) => {
     const dispatch = useDispatch();
 
     const decrementOnClickHandler = () => {
-        !runTimer && length === 1 ? dispatch(setLength(60)) : dispatch(setLength(length - 1));
+        if (runTimer) return;
+        length === 1 ? dispatch(setLength(60)) : dispatch(setLength(length - 1));
     };
 
     const incrementOnclickHandler = () => {
-        !runTimer && length === 60 ? dispatch(setLength(1)) : dispatch(setLength(length + 1));
+        if (runTimer) return;
+        length === 60 ? dispatch(setLength(1)) : dispatch(setLength(length + 1));
     };
 
     return (
