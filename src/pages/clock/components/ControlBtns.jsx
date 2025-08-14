@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setRunTimer, setCurrentTimer, setSessionLength, setBreakLength } from "../ClockSlice";
-import { SESSION } from "../constants/timerTypes";
+import { setRunTimer, resetTimer } from "../ClockSlice";
 import styles from "../clock.module.css";
 import { useCallback, useEffect } from "react";
 
@@ -14,12 +13,12 @@ const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
     };
 
     const resetFunc = useCallback(() => {
-        soundRef.current.currentTime = 0;
-        soundRef.current.pause();
-        dispatch(setCurrentTimer(SESSION));
-        dispatch(setSessionLength(25));
-        dispatch(setBreakLength(5));
-        dispatch(setRunTimer(false));
+        if (soundRef.current) {
+            soundRef.current.currentTime = 0;
+            soundRef.current.pause();
+        }
+
+        dispatch(resetTimer());
         if (updateTimeoutRef.current) {
             clearTimeout(updateTimeoutRef.current);
             updateTimeoutRef.current = null;
@@ -28,7 +27,9 @@ const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
     }, [dispatch, soundRef, updateTimeoutRef, setTimeLeft]);
 
     useEffect(() => {
-        resetFunc();
+        return () => {
+            resetFunc();
+        };
     }, [resetFunc]);
 
     return (
