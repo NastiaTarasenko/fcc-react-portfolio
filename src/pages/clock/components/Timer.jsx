@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useRef, useEffect } from "react";
-import { setRunTimer, setCurrentTimer } from "../ClockSlice";
-import { SESSION, BREAK } from "../constants/timerTypes";
+import { setRunTimer, switchTimer } from "../ClockSlice";
+import { SESSION } from "../constants/timerTypes";
 import styles from "../clock.module.css";
+import store from "../../../app/store";
 
 const Timer = ({ soundRef, updateTimeoutRef, timeLeft, setTimeLeft }) => {
     const currentTimer = useSelector((state) => state.clock.currentTimer);
@@ -27,17 +28,20 @@ const Timer = ({ soundRef, updateTimeoutRef, timeLeft, setTimeLeft }) => {
     useEffect(() => {
         if (timeLeft === 0 && runTimer) {
             if (soundRef.current) {
+                soundRef.current.currentTime = 0;
                 soundRef.current.play();
                 dispatch(setRunTimer(false));
 
                 updateTimeoutRef.current = setTimeout(() => {
-                    dispatch(setCurrentTimer(currentTimer === SESSION ? BREAK : SESSION));
-                    dispatch(setRunTimer(true));
+                    dispatch(switchTimer());
+                    const state = store.getState().clock;
+                    const nextLength = state.currentTimer === SESSION ? state.sessionLength : state.breakLength;
+                    setTimeLeft(nextLength * 60);
                     soundRef.current.pause();
-                }, 3000);
+                }, 5500);
             }
         }
-    }, [timeLeft, runTimer, currentTimer, dispatch, soundRef, updateTimeoutRef]);
+    }, [timeLeft, runTimer, soundRef, dispatch, updateTimeoutRef, setTimeLeft]);
 
     const mins = Math.floor(timeLeft / 60);
     const sec = timeLeft % 60;
