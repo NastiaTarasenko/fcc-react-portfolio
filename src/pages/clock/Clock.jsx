@@ -37,7 +37,7 @@ const Clock = () => {
                     setTimeLeft={setTimeLeft}
                 />
                 <ControlBtns updateTimeoutRef={updateTimeoutRef} soundRef={soundRef} setTimeLeft={setTimeLeft} />
-                <audio ref={soundRef} src="https://cdn.freecodecamp.org/testable-projects-fcc/audio/BeepSound.wav" />
+                <audio ref={soundRef} src="/clock-sound.wav" />
             </div>
         </>
     );
