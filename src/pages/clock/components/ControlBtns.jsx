@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setRunTimer, resetTimer } from "../ClockSlice";
 import styles from "../clock.module.css";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, memo } from "react";
 
-const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
+const ControlBtns = memo(({ updateTimeoutRef, soundRef, setTimeLeft }) => {
     const runTimer = useSelector((state) => state.clock.runTimer);
 
     const dispatch = useDispatch();
@@ -42,6 +42,6 @@ const ControlBtns = ({ updateTimeoutRef, soundRef, setTimeLeft }) => {
             </button>
         </div>
     );
-};
+});
 
 export default ControlBtns;

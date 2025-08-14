@@ -2,8 +2,9 @@ import { typeConfig } from "../constants/typeConfig";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../clock.module.css";
 import { BREAK } from "../constants/timerTypes";
+import { memo } from "react";
 
-const BreakSessionSettings = ({ type }) => {
+const BreakSessionSettings = memo(({ type }) => {
     const { lengthSelector, setLength } = typeConfig[type];
     const runTimer = useSelector((state) => state.clock.runTimer);
 
@@ -35,6 +36,6 @@ const BreakSessionSettings = ({ type }) => {
             </div>
         </div>
     );
-};
+});
 
 export default BreakSessionSettings;

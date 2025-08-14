@@ -1,11 +1,11 @@
 import styles from "./menu.module.css";
 import MenuToggleIcon from "../icons/MenuToggleIcon.jsx";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { MENU_ITEMS } from "./constants.js";
 import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
-const Menu = () => {
+const Menu = memo(() => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const itemsRef = useRef([]);
     const tl = useRef(null);
@@ -54,5 +54,5 @@ const Menu = () => {
             </nav>
         </div>
     );
-};
+});
 export default Menu;
