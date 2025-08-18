@@ -1,5 +1,6 @@
 import Menu from "../../shared/menu/Menu";
 import styles from "./calculator.module.css";
+import Background from "./components/Background";
 import ButtonsWrapper from "./components/ButtonsWrapper";
 import Cat from "./components/Cat";
 import Display from "./components/Display";
@@ -16,6 +17,7 @@ const Calculator = () => {
                     <Display />
                     <ButtonsWrapper />
                 </div>
+                <Background containerRef={containerRef} />
                 <Cat containerRef={containerRef} />
             </div>
         </>

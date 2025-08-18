@@ -42,6 +42,7 @@
     border-radius: 1rem;
     width: 100%;
     max-width: 21rem;
+    z-index: 2;
 }
 
 .displayInput,
@@ -147,6 +148,29 @@
     background-size: 35rem;
 }
 
-.equals {
-    grid-row: span 2;
+.bgSvg {
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.themeToggleBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.themeToggleBtn:disabled {
+    cursor: default;
+}
+.themeToggleBtn svg {
+    fill: rgb(238, 223, 14);
+    width: 3rem;
+    height: 3rem;
+    transform: scaleX(-1);
+}
+.themeToggleBtn:hover svg {
+    fill: rgb(226, 213, 27);
 }
