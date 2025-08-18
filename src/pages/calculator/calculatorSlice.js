@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { OPERATIONS } from "./constants";
-import { evaluate } from "mathjs";
+import { Parser } from "expr-eval";
+
+const parser = new Parser();
 
 const addOperatorHelper = (state, value) => {
     const operator = value === "x" ? "·" : value;
@@ -101,7 +103,7 @@ const calculateHelper = (state) => {
     let result;
 
     try {
-        result = evaluate(expr.replace(/·/g, "*"));
+        result = parser.evaluate(expr.replace(/·/g, "*"));
     } catch {
         result = NaN;
     }
