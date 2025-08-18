@@ -14,15 +14,19 @@ A simple app that displays random quotes with their authors. Users can get new q
 
 An interactive timer where you can set custom session and break lengths, start/stop the countdown, and reset everything to default values. It automatically switches between work sessions and breaks, playing a sound when each phase ends. The project focuses on precise timer logic, state management with Redux, and handling edge cases like length limits and pause/resume behavior.
 
+### Calculator
+
+A playful calculator page that supports basic arithmetic, decimals, and reset functionality. It features a walking cat animation and theme switching for a fun, interactive experience. The project demonstrates dynamic UI rendering, input validation, and state management with React and Redux.
+
 ---
 
 ## Purpose
 
-These projects were originally built as part of the FreeCodeCamp Frontend Development Libraries course. Now, I'm combining them into one React app to improve project organization, routing, and build something bigger.
+These projects were originally built as part of the FreeCodeCamp Frontend Development Libraries course. The original goal was to combine them into one React app, improve project organization, and practice routing.
 
-Styling wasn’t the top priority, but I tried to keep the design nice and clean — starting from FCC examples and tweaking it a bit to make it more polished.
+During development, I added extra features like theme switching, playful animations, and lazy loading for pages. Now it’s a unified app with multiple interactive tools—a place to experiment with React and Redux, practice component structure, state management, and performance optimizations.
 
-Overall, this is a playground to experiment with React and Redux, practice code structuring, logic handling, and performance improvements. More projects will be added over time.
+Styling wasn’t the main focus, but I tried to keep the design clean and polished, adding my own touches to make the experience more engaging.
 
 ---
 
@@ -30,6 +34,7 @@ Overall, this is a playground to experiment with React and Redux, practice code 
 
 - React
 - Redux (used intentionally even when simpler solutions might exist to better understand it)
-- CSS
+- Vite (for fast development and build)
+- CSS Modules (scoped component styling)
 
 ---
