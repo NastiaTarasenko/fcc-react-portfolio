@@ -8,7 +8,7 @@ const Cat = ({ containerRef }) => {
     const moveTl = useRef(null);
 
     useEffect(() => {
-        const positions = ["0%", "17%", "34%", "51%", "68%", "85%", "102%"];
+        const positions = ["0%", "16.5%", "33.4%", "50%", "66%", "83%", "99.5%"];
 
         walkTl.current = gsap.timeline({
             repeat: -1,

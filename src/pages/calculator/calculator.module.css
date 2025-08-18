@@ -71,12 +71,13 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 8vw;
+    width: 5rem;
     height: auto;
     aspect-ratio: 1 / 1;
     background-image: url("/walking-cat.png");
     background-repeat: no-repeat;
     background-position: 0 0;
+    background-size: 35rem;
 }
 
 .equals {
