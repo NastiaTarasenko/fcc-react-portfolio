@@ -1,70 +1,137 @@
 .container {
+    --container-bg: #faf7f3;
+    --secondary-color: #a55d0f;
+    --accent-color: #f5b942;
+    --accent-hover: #e6a839;
+    --accent-active: #d18c2f;
+    --btn-bg: #fdfaf7;
+    --btn-border: #d4c2b8;
+    --btn-hover: #f6ede8;
+    --btn-active: #ebd6cc;
+    --btn-text: #3a2c18;
+    --display-bg: #fffdfa;
+    --display-text: #4a2f0f;
+
     position: relative;
     padding: 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #999999;
-    height: 78vh;
-    width: 90%;
+    background-color: var(--container-bg);
+    height: 82vh;
+    width: 80%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
+
 .title {
     font-size: 2.2rem;
     font-weight: 600;
     text-align: center;
-    margin: 0;
+    margin: 0 0 2.5rem 0;
     color: #5a2807;
-    user-select: none;
-    margin-bottom: 4rem;
 }
+
 .wrapper {
-    background-color: #171100;
-    padding: 0.35rem;
+    background-color: var(--display-bg);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 21rem;
 }
+
 .displayInput,
 .displayValue {
-    font-family: monospace;
+    font-family: "Fira Mono", monospace;
     text-align: right;
     margin: 0;
-}
-.displayInput {
-    line-height: 1.27rem;
-    color: #d16200;
-    font-size: 1.1rem;
-    min-height: 1.27rem;
-    /*   float: right; */
-    max-width: 18rem;
+    max-width: 100%;
     word-break: break-word;
 }
-.displayValue {
-    line-height: 1.95rem;
-    color: #fff;
+.displayInput {
+    line-height: 1.6rem;
+    color: var(--secondary-color);
     font-size: 1.3rem;
-    min-height: 1.95rem;
+    min-height: 1.6rem;
+    max-height: 5rem;
+    overflow-y: auto;
+    padding-right: 0.4rem;
 }
+.displayInput::-webkit-scrollbar {
+    width: 0.25rem;
+}
+.displayInput::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+.displayInput::-webkit-scrollbar-thumb {
+    background: #a35c7a;
+    border-radius: 3px;
+}
+.displayInput::-webkit-scrollbar-thumb:hover {
+    background: #d8899e;
+}
+.displayValue {
+    line-height: 2.4rem;
+    color: var(--display-text);
+    font-size: 1.6rem;
+    min-height: 2.4rem;
+}
+
 .buttonsWrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.1rem;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+    width: 100%;
 }
+
 .btn {
-    font-size: 18px;
-    padding: 1rem;
-    background-color: #f7e9c1;
-    border: 1px solid #785800;
-    min-width: 4rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    background-color: var(--btn-bg);
+    border: 2px solid var(--btn-border);
+    min-width: 2.5rem;
+    min-height: 3.5rem;
+    position: relative;
+    border-radius: 1.2rem;
+    box-shadow: 0 3px 0 var(--btn-border);
+    transition: all 0.05s ease;
+    cursor: pointer;
+    color: var(--btn-text);
 }
+
 .btn:hover {
-    background-color: #f5d784;
-    transform: scale(1.08);
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
 }
+
 .btn:active {
-    background-color: #dbb13d;
+    background-color: var(--btn-active);
+    transform: scale(0.96);
+    box-shadow: 0 1px 0 var(--btn-border);
 }
+
 .clear,
 .zero {
     grid-column: span 2;
+}
+
+.equals {
+    grid-row: span 2;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+}
+.equals:hover {
+    background-color: var(--accent-hover);
+}
+.equals:active {
+    background-color: var(--accent-active);
 }
 
 .cat {
