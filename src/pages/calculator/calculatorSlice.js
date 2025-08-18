@@ -53,7 +53,7 @@ const addDecimalHelper = (state) => {
     }
     if (state.lastValue.includes(".")) return;
 
-    if (state.lastValue === "" || OPERATIONS.includes(state.lastValue)) {
+    if (state.lastValue === "0" || OPERATIONS.includes(state.lastValue)) {
         state.input += "0.";
         state.lastValue = "0.";
         return;
