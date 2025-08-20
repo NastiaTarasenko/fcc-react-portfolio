@@ -5,7 +5,7 @@ import CalculatorReducer from "../pages/calculator/calculatorSlice";
 
 const store = configureStore({
     reducer: {
-        RandomQuote: RandomQuoteReducer,
+        randomQuote: RandomQuoteReducer,
         clock: clockReducer,
         calculator: CalculatorReducer,
     },

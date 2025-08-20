@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Menu from "../../shared/menu/Menu.jsx";
 
 const RandomQuote = () => {
-    const quoteIndex = useSelector((state) => state.RandomQuote.quoteIndex);
+    const quoteIndex = useSelector((state) => state.randomQuote.quoteIndex);
     const dispatch = useDispatch();
 
     useEffect(() => {
