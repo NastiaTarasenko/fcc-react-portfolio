@@ -107,6 +107,12 @@ const calculateHelper = (state) => {
         return;
     }
 
+    if (state.input === "-") {
+        state.input = "0";
+        state.lastValue = "0";
+        return;
+    }
+
     while (/[+\-·/.]$/.test(expr)) expr = expr.slice(0, -1);
 
     let result;

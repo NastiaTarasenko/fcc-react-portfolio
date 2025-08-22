@@ -8,7 +8,7 @@ const DigitBtn = ({ value, className }) => {
         dispatch(addDigitWithLimitCheck(value));
     };
     return (
-        <button onClick={onClickHandler} className={`${styles.btn} ${className}`}>
+        <button onClick={onClickHandler} className={`${styles.btn} ${className}`} aria-label={`Digit ${value}`}>
             {value}
         </button>
     );
