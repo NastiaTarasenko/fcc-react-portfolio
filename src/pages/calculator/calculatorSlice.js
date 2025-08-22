@@ -118,8 +118,14 @@ const calculateHelper = (state) => {
         result = NaN;
     }
 
-    state.input = expr + "=" + result;
-    state.lastValue = result.toString();
+    let resultStr = result.toString();
+
+    if (resultStr.length > 8) {
+        resultStr = result.toExponential(5);
+    }
+
+    state.input = expr + "=" + resultStr;
+    state.lastValue = resultStr;
 
     state.wasEqualed = true;
 };
