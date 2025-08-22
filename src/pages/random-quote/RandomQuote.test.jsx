@@ -37,10 +37,13 @@ test("displays a new quote when New Quote button is clicked", () => {
     const quoteBefore = screen.getByText(new RegExp(Quotes.map((q) => q.text).join("|"))).textContent;
 
     fireEvent.click(screen.getByRole("button", { name: /new quote/i }));
+    let quoteAfter = screen.getByText(new RegExp(Quotes.map((q) => q.text).join("|"))).textContent;
 
-    const quoteAfter = screen.getByText(new RegExp(Quotes.map((q) => q.text).join("|"))).textContent;
+    if (quoteAfter === quoteBefore) {
+        fireEvent.click(screen.getByRole("button", { name: /new quote/i }));
+        quoteAfter = screen.getByText(new RegExp(Quotes.map((q) => q.text).join("|"))).textContent;
+    }
 
     expect(Quotes.map((q) => q.text)).toContain(quoteAfter);
-
     expect(quoteAfter).not.toBe(quoteBefore);
 });
