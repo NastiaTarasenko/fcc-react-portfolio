@@ -26,11 +26,21 @@ const BreakSessionSettings = memo(({ type }) => {
             <p id={type === BREAK ? "break-label" : "session-label"}>{type} Length</p>
 
             <div className={styles.parametersWrapper}>
-                <button className={`${styles.btn} ${styles.durationControls}`} onClick={decrementOnClickHandler}>
+                <button
+                    className={`${styles.btn} ${styles.durationControls}`}
+                    onClick={decrementOnClickHandler}
+                    aria-label={`decrease ${type} length`}
+                >
                     –
                 </button>
-                <p className={styles.duration}>{length}</p>
-                <button className={`${styles.btn} ${styles.durationControls}`} onClick={incrementOnclickHandler}>
+                <p className={styles.duration} data-testid={`${type}-length`}>
+                    {length}
+                </p>
+                <button
+                    className={`${styles.btn} ${styles.durationControls}`}
+                    onClick={incrementOnclickHandler}
+                    aria-label={`increase ${type} length`}
+                >
                     +
                 </button>
             </div>

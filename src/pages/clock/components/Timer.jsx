@@ -48,7 +48,9 @@ const Timer = ({ soundRef, updateTimeoutRef, timeLeft, setTimeLeft }) => {
 
     return (
         <div className={styles.timerWrapper}>
-            <p className={styles.timerLabel}>{currentTimer}</p>
+            <p className={styles.timerLabel} data-testid="current-timer">
+                {currentTimer}
+            </p>
             <p className={styles.timeLeft} style={{ color: timeLeft < 60 ? "#d9111f" : "inherit" }}>
                 {mins < 10 ? `0${mins}` : mins}:{sec < 10 ? `0${sec}` : sec}
             </p>
