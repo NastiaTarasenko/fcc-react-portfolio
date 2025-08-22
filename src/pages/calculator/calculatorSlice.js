@@ -113,6 +113,7 @@ const calculateHelper = (state) => {
 
     try {
         result = parser.evaluate(expr.replace(/·/g, "*"));
+        result = parseFloat(result.toFixed(10));
     } catch {
         result = NaN;
     }
