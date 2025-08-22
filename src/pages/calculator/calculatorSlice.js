@@ -8,7 +8,8 @@ const addOperatorHelper = (state, value) => {
     const operator = value === "x" ? "·" : value;
 
     if (state.wasEqualed) {
-        const result = state.input.split("=")[1] || "";
+        let result = state.input.split("=");
+        result = result.length > 1 ? result[1] : state.input;
         state.input = result + operator;
         state.lastValue = value;
         state.wasEqualed = false;
@@ -97,6 +98,14 @@ export const addDigitWithLimitCheck = (value) => (dispatch, getState) => {
 
 const calculateHelper = (state) => {
     let expr = state.input;
+
+    if (state.wasEqualed) {
+        let res = expr.split("=");
+        res = res.length > 1 ? res[1] : res[0];
+        state.input = res;
+        state.lastValue = res;
+        return;
+    }
 
     while (/[+\-·/.]$/.test(expr)) expr = expr.slice(0, -1);
 
