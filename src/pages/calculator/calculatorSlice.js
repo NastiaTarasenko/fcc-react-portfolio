@@ -119,7 +119,8 @@ const calculateHelper = (state) => {
     }
 
     state.input = expr + "=" + result;
-    state.lastValue = result || "";
+    state.lastValue = result.toString();
+
     state.wasEqualed = true;
 };
 
